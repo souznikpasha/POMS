@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Мое приложение</string>
+    <string name="division">Деление</string>
+    <string name="multiply">Умножение</string>
+    <string name="minus">Минус</string>
+    <string name="plus">Сложение</string>
 </resources>

@@ -20,28 +20,62 @@ import android.app.Activity;
 import java.text.BreakIterator;
 
 public class MainActivity extends AppCompatActivity{
+    oneFragment fr1;
+    twoFragment fr2;
+    Button viewfragment1, viewfragment2;
+    boolean flag = true;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-    public void Change (View v)
-    {
-        Fragment Fragment= null;
-        switch (v.getId())
-        {
-            case R.id.viewfragment1:
-                Fragment = new oneFragment();
-                break;
-            case R.id.viewfragment2:
-                Fragment = new twoFragment();
-                break;
+        fr1 = new oneFragment();
+        fr2 = new twoFragment();
+        viewfragment1 = findViewById(R.id.viewfragment1);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.FrameAddit, fr1);
+        transaction.commit();
+
+        viewfragment1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft = fm.beginTransaction();
+                if(flag)
+                {
+                    ft.replace(R.id.FrameAddit, fr2);
+                    flag = false;
+                }
+                else
+                {
+                    ft.replace(R.id.FrameAddit, fr1);
+                    flag = true;
+                }
+                ft.commit();
+            }
+        });
         }
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.fragment_place, Fragment);
-        ft.commit();
     }
+//    public void Change (View v)
+//    {
+//        Fragment Fragment= null;
+//
+//        switch (v.getId())
+//        {
+//            case R.id.viewfragment1:
+//                Fragment = new oneFragment();
+//                break;
+//            case R.id.viewfragment2:
+//                Fragment = new twoFragment();
+//                break;
+//        }
+//        FragmentManager fm = getSupportFragmentManager();
+//        FragmentTransaction ft = fm.beginTransaction();
+//        ft.replace(R.id.fragment_place, Fragment);
+//        ft.commit();
+//    }
 
 
 //    EditText num1;
@@ -115,4 +149,3 @@ public class MainActivity extends AppCompatActivity{
 //        toast1.show();
 //        out_result.setText(number1 + " "+ oper + number2 + " " + "= " + result);
 //   }
-}

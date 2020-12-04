@@ -58,21 +58,92 @@ public class twoFragment extends Fragment {
         division = (Button) view.findViewById(R.id.division);
 
         out_result = (TextView) view.findViewById(R.id.out_result);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float number1 = 0;
+                float number2 = 0;
+                float result = 0;
+                if (TextUtils.isEmpty(num1.getText().toString())
+                        || TextUtils.isEmpty(num2.getText().toString()))
+                    return;
+                number1 = Float.parseFloat(num1.getText().toString());
+                number2 = Float.parseFloat(num2.getText().toString());
+                oper = "+";
+                result = number1 + number2;
+                out_result.setText(String.valueOf(result));
+                Toast toast1 = Toast.makeText(getActivity(), "Результат " + String.valueOf(result)  , Toast.LENGTH_SHORT);
+                toast1.show();
 
+            }
+        });
+        min.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float number1 = 0;
+                float number2 = 0;
+                float result = 0;
+                if (TextUtils.isEmpty(num1.getText().toString())
+                        || TextUtils.isEmpty(num2.getText().toString()))
+                    return;
+                number1 = Float.parseFloat(num1.getText().toString());
+                number2 = Float.parseFloat(num2.getText().toString());
+                oper = "-";
+                result = number1 - number2;
+                out_result.setText(String.valueOf(result));
+                Toast toast1 = Toast.makeText(getActivity(), "Результат " + String.valueOf(result) , Toast.LENGTH_SHORT);
+                toast1.show();
 
-        Button plus = view.findViewById(R.id.plus);
-        plus.setOnClickListener(v -> sum());
-        //plus.setOnClickListener(this);
-        Button min = view.findViewById(R.id.min);
-        min.setOnClickListener(v -> min());
-       // min.setOnClickListener(this);
-        Button multiply = view.findViewById(R.id.multiply);
-        multiply.setOnClickListener(v -> multiply());
-        //multiply.setOnClickListener(this);
-        Button division = view.findViewById(R.id.division);
-        division.setOnClickListener(v -> division());
-       // division.setOnClickListener(this);
+            }
+        });
+        multiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float number1 = 0;
+                float number2 = 0;
+                float result = 0;
+                if (TextUtils.isEmpty(num1.getText().toString())
+                        || TextUtils.isEmpty(num2.getText().toString()))
+                    return;
+                number1 = Float.parseFloat(num1.getText().toString());
+                number2 = Float.parseFloat(num2.getText().toString());
+                oper = "*";
+                result = number1 * number2;
+                out_result.setText(String.valueOf(result));
+                Toast toast1 = Toast.makeText(getActivity(), "Результат " + String.valueOf(result)  , Toast.LENGTH_SHORT);
+                toast1.show();
+
+            }
+        });
+        division.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float number1 = 0;
+                float number2 = 0;
+                float result = 0;
+                if (TextUtils.isEmpty(num1.getText().toString())
+                        || TextUtils.isEmpty(num2.getText().toString()))
+                    return;
+                number1 = Float.parseFloat(num1.getText().toString());
+                number2 = Float.parseFloat(num2.getText().toString());
+                oper = "/";
+                result = number1 / number2;
+                out_result.setText(String.valueOf(result));
+                Toast toast1 = Toast.makeText(getActivity(), "Результат " + String.valueOf(result) , Toast.LENGTH_SHORT);
+                toast1.show();
+
+            }
+        });
+
         return view;
+    }
+
+    public void calcSum(View view) {
+        float number1 = 0;
+        float number2 = 0;
+        float result = 0;
+        //Toast toast1 = Toast.makeText(getActivity(), "Результат " + number1 , Toast.LENGTH_SHORT);
+        //toast1.show();
     }
 
     public void sum()
@@ -135,6 +206,7 @@ public class twoFragment extends Fragment {
     {
         out_result.setText(String.valueOf(result));
         Toast toast1 = Toast.makeText(getActivity(), "Результат " + String.valueOf(result) , Toast.LENGTH_SHORT);
+        toast1.show();
     }
     //кнопки для 3 мат операций
    // @Override

@@ -71,14 +71,14 @@ public class oneFragment extends Fragment {
             public void onClick(View v) {
                 float number1 = 0;
                 float number2 = 0;
-                float result = 0;
+                double result = 0;
                 if (TextUtils.isEmpty(num1.getText().toString())
                         || TextUtils.isEmpty(num2.getText().toString()))
                     return;
                 number1 = Float.parseFloat(num1.getText().toString());
                 number2 = Float.parseFloat(num2.getText().toString());
                 oper = "-";
-                result = number1 - number2;
+                result = Math.pow(number1, number2);
                 out_result.setText(String.valueOf(result));
                 Toast toast1 = Toast.makeText(getActivity(), "Результат " + String.valueOf(result) , Toast.LENGTH_SHORT);
                 toast1.show();
@@ -97,7 +97,7 @@ public class oneFragment extends Fragment {
                 number1 = Float.parseFloat(num1.getText().toString());
                 number2 = Float.parseFloat(num2.getText().toString());
                 oper = "*";
-                result = number1 * number2;
+                result = (number1 + number2)/2;
                 out_result.setText(String.valueOf(result));
                 Toast toast1 = Toast.makeText(getActivity(), "Результат " + String.valueOf(result)  , Toast.LENGTH_SHORT);
                 toast1.show();
